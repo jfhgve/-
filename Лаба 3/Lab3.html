@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab3</title>
+		<script>
+			function genTree(elem){
+				var child=elem.firstElementChild;    //Возвращает дочерний элемент
+				var ul=document.createElement('ul');    //Создает элемент с указанным тегом
+				while(child){
+					console.log(child.tagName);            //Метод вывода информации
+					var li=document.createElement('li');
+					li.innerHTML = child.tagName;           //Новый элемент
+					var list=genTree(child);
+					li.appendChild(list);                   //Создание цикла
+					ul.appendChild(li);
+					child=child.nextElementSibling;  //Содержит следующий элемент
+				}
+				elem.appendChild(ul);
+				return ul;
+			}
+		</script>
+	</head>
+	<body>
+				<div id="lab3">
+		<h1>Лабораторная работа 3</h1>
+		<p>Создать текстовый документ с глубиной вложенности не менее 3 элементов внутри тега body </p>
+		<br />
+		</div>
+		<form actiom="/form_submit" method="get">
+		<input type="button" onclick="genTree(document.documentElement);" value="Построить дерево"/>
+		</form>
+	</body>
+</html>
