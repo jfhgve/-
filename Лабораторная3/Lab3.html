@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>lab3</title>
+	<meta charset="utf-8"/>
+	<style type="text/css" media="screen">
+		#result {font-style:monospace;}
+	</style>
+	<script type="text/javascript">
+		var str = "";
+		/*n - уровень вложенности, name - объект разметки*/
+		function scan(name, n) {
+			if ((name != null) && (name != document.getElementById("result")) && (name != document.getElementById("button")) && (name.nodeName != "#text")) {
+				for (var i = 0; i < n; i++) {
+					str = str + "&nbsp";
+				}
+				str = str + name.nodeName + "<br/>";
+				for (var j = 0; j < name.childNodes.length; j++) {
+					scan(name.childNodes[j], n+1);
+					console.log("scanning", name.childNodes[j]);
+				}
+			} else {
+				return;
+			}
+		}
+		/*Вызывает scan и печатает строку результата в result*/
+		function start() {
+			var result = document.getElementById("result");
+			str = "";
+			scan(document.getElementsByTagName("body")[0], 0);
+			result.innerHTML = str;
+		}
+	</script>
+</head>
+<body>
+	<h1>Разметка HTML</h1>
+	<div>Пример простого
+		<div>документа
+			<p><span>HTML</span></p>
+		</div>
+	</div>
+	<p>Test string</p>
+
+	<div id="result"></div>
+	<button id = "button" onclick = start()>Вывести результат</button>
+</body>
+</html>

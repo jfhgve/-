@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Лабораторная работа 4</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+    <div id = 'add'>
+
+      <p>Добавление товара</p>
+      Название: <input type="text" name="name" /><br />
+      Цена:     <input id="Cyna" type="text" name="coast" /><br />
+      <button onclick="add()">Добавить</button>
+    </div>
+  <div id = 'tovres'>
+    <p>Каталог товаров</p>
+    <table id = 'catalog'>
+      <tr>
+        <th>Наименование</th>
+        <th>Цена</th>
+      </tr>
+
+    </table>
+  </div>
+
+  <div id = 'basket'>
+    <p>Корзина</p>
+    <table id = 'korsina'>
+      <tr>
+        <th>Наименование</th>
+        <th>Цена</th>
+        <th>Количество</th>
+      </tr>
+    </table>
+  </div>
+  
+  <div id = 'sum'>
+    <table>
+      <tr>
+        <td>Сумма</td>
+        <td id = 'summa'>0</td>
+      </tr>
+    </table>
+
+  </div>
+  </body>
+</html>
